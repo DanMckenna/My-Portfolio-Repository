@@ -1,1 +1,1 @@
-# My-Portfolio-Repository
+# A personal repository showcasing demonstration projects and code samples
