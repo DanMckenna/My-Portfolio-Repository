@@ -12,7 +12,7 @@ namespace ConsoleDemonstrationApp
 {
     public class ConsoleDemonstrationApp
     {
-        static void Main(string[] args)
+        static void Main()
         {
             // Write a series of simple messages to the console
             Console.WriteLine("The ConsoleDemonstrationApp program has started.");
