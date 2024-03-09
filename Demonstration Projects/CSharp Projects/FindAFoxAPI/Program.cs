@@ -5,6 +5,7 @@ using System.Net.Http; // enables the ability to natively invoke APIs
 using System.Text;
 using System.Text.Json; // enables json functionality
 using System.Threading.Tasks;
+using System.Configuration; // enables the ability to read from config files
 
 /* Created by Daniel P. Mckenna
  * This application uses the native HttpClient library to request a URL to a random picture
@@ -28,7 +29,7 @@ namespace FindAFoxAPI
 
             // Obtain the uri of the API from the config file and assign it to the Base Address of our client object
             // Make sure that this ends with a forwardslash character
-            client.BaseAddress = new Uri("https://randomfox.ca/");
+            client.BaseAddress = new Uri(ConfigurationManager.AppSettings.Get("RandomFoxUri"));
 
             // This is what we would use if we were required to pass request data
             //var json = JsonSerializer.Serialize(requestData);
@@ -44,7 +45,7 @@ namespace FindAFoxAPI
             try
             {
                 // Obtain the target Endpoint from the config file and then attempt to invoke the API
-                postResp = client.PostAsync("floof", content).Result;
+                postResp = client.PostAsync(ConfigurationManager.AppSettings.Get("RandomFoxEndpoint"), content).Result;
             }
             catch (HttpRequestException ex)
             {
@@ -69,9 +70,9 @@ namespace FindAFoxAPI
                  * any possible differences in case-sensitivity between the field names of our response class and
                  * the API endpoint from causing issues interpreting the results. */
                 APIResponse responseObj = JsonSerializer.Deserialize<APIResponse>(responseContent, options);
-                Console.WriteLine(responseObj.image);
-                Console.WriteLine("Press any key to finish");
-                Console.ReadKey();
+
+                // Display the image in the user's default web browser
+                System.Diagnostics.Process.Start(responseObj.image);
             }
             else
             {
