@@ -1,2 +1,2 @@
-# Hiya!
-# My name is Daniel Mckenna and this is my personal code repository showcasing demonstration projects and samples that I have worked on
+# Dan's Portfolio Repository
+This is my personal code repository showcasing demonstration projects and samples that I have worked on
