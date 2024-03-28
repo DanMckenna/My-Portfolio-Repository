@@ -5,10 +5,13 @@
  *  functions
  *  conditionals
  *  loops
- */
+*/
 
 // enable strict mode to prevent any accidental undeclared variables/objects from being used
 'use strict';
+
+// import packages/libraries
+import createPrompt from 'prompt-sync'; // enables to the ability to prompt the user for input via the console
 
 // a function showcasing string manipulation techniques
 function testStringManipulation() {
@@ -58,5 +61,27 @@ function testStringManipulation() {
     }
 }
 
-// execute the testStringManipulation() function
-testStringManipulation();
+// test user input via the console
+function testUserInput() {
+    let prompt = createPrompt(); // create a prompt object
+    let userNumber = prompt("Please enter your favorite number: ");
+
+    // validate the user's input (if any)
+    // use recurrsion to re-prompt the user for input if any errors were found
+    if (!userNumber) {
+        console.log("Input cannot be empty")
+        testUserInput();
+    }
+    // validate that the user's input is a number
+    else if (isNaN(userNumber)) {
+        console.log("Input must be a number")
+        testUserInput();
+    }
+    else {
+        console.log("The number you entered is: " + userNumber);
+    }
+}
+
+// statements to be executed
+testStringManipulation(); // begin testing string manipulation techniques
+testUserInput(); // begin testing user input via the console

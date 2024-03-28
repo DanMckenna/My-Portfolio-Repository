@@ -6,9 +6,10 @@
   "author": {
     "name": ""
   },
+  "type": "module",
   "devDependencies": {
-    "eslint": "^8.21.0"
+    "eslint": "^8.57.0",
+    "prompt-sync": "^4.2.0"
   },
-  "eslintConfig": {
-  }
+  "eslintConfig": {}
 }
