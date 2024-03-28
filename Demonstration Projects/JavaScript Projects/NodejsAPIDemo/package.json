@@ -1,0 +1,14 @@
+{
+  "name": "nodejs-apidemo",
+  "version": "0.0.0",
+  "description": "NodejsAPIDemo",
+  "main": "app.js",
+  "type": "module",
+  "author": {
+    "name": ""
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0"
+  },
+  "eslintConfig": {}
+}
